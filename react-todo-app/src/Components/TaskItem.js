@@ -22,6 +22,9 @@ export default class TaskItem extends Component {
     this.props.editTask(this.props.id, this.state.task);
     this.setState({ isEditing: false });
   };
+  toggleTask = () => {
+    this.props.toggleTask(this.props.id);
+  };
   render() {
     return (
       <tr>
@@ -52,10 +55,34 @@ export default class TaskItem extends Component {
           </>
         ) : (
           <>
-            <td>{this.props.taskItem.task}</td>
+            <td onClick={this.toggleTask}>
+              <input
+                type="checkbox"
+                readOnly
+                checked={this.props.taskItem.isCompleted}
+              />
+              <span
+                className={
+                  this.props.taskItem.isCompleted
+                    ? 'completed'
+                    : 'not-completed'
+                }
+              >
+                {this.props.taskItem.task}
+              </span>
+            </td>
             <td>
-              <button onClick={() => this.setEditingState(true)}> edit </button>
-              <button onClick={this.deleteTask}> delete</button>
+              <button
+                onClick={() => this.setEditingState(true)}
+                className="edit"
+              >
+                {' '}
+                edit{' '}
+              </button>
+              <button onClick={this.deleteTask} className="delete">
+                {' '}
+                delete
+              </button>
             </td>
           </>
         )}
