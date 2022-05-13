@@ -5,6 +5,7 @@ import MainContent from './MainContent';
 import NewCounter from './NewCounter';
 import NewUserInfo from './NewUserInfo';
 import UserInfo from './UserInfo';
+import UserList from './UserList';
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
       {/* <Counter />
       <NewCounter /> */}
       {/* <NewUserInfo /> */}
-      <Layout Layout />
-      <MainContent />
+      {/* <Layout Layout />
+      <MainContent /> */}
+      <UserList></UserList>
     </div>
   );
 }
