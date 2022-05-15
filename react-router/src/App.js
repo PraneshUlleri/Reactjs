@@ -8,13 +8,17 @@ function App() {
   return (
     <BrowserRouter>
       <Link to="/"> Homepage </Link>
+      <br />
       <Link to="/about">aboutPage </Link>
+      <br />
       <Link to="/product">ProductPage </Link>
+      <br />
       <Routes>
-        <Route exact path="/product" element={<ProductPage />} />
+        <Route exact path="/product" element={<ProductPage />}></Route>
         <Route path="/product/:id"></Route>
         <Route path="/about" element={<AboutPage />} />
         <Route exact path="/" element={<Home />}></Route>
+        <Route path="*" element={<div>Error</div>} />
       </Routes>
     </BrowserRouter>
   );
