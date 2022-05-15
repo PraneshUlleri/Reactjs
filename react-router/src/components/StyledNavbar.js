@@ -23,7 +23,7 @@ export default function StyledNavbar() {
         about
       </NavLink>
       <NavLink
-        to="/products"
+        to="/product"
         style={({ isActive }) => {
           return { color: isActive ? 'red' : 'grey' };
         }}

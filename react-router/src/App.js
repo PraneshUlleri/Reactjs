@@ -12,7 +12,7 @@ function App() {
         <Route exact path="/" element={<SharedLayout />}>
           <Route index element={<Home />}></Route>
           <Route exact path="/product" element={<ProductPage />}></Route>
-          <Route path="/product/:id"></Route>
+          <Route path="/product/:id" element={<ProductPage />}></Route>
           <Route path="/about" element={<AboutPage />} />
           <Route path="*" element={<div>Error</div>} />
         </Route>

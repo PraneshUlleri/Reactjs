@@ -11,7 +11,7 @@ export default function ProductPage() {
       ) : (
         <ul>
           <li>
-            <Link to="/product/1"> Product 1</Link>
+            <Link to="/product/12e"> Product 1</Link>
           </li>
           <li>
             <Link to="/product/2"> Product 2</Link>
