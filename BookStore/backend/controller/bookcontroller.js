@@ -58,8 +58,31 @@ const getBookById = async (req, res, next) => {
 
 const updateBookById = async (req, res, next) => {
   const id = req.params.id;
+  const { name, author, description, price, available } = req.body;
+  let book;
+  try {
+    book = await Book.findByIdAndUpdate(id, {
+      name,
+      author,
+      description,
+      price,
+      available,
+    });
+    book = await book.save();
+  } catch (error) {
+    console.log(
+      error + ' this is the erre when func updateBookById is called!'
+    );
+  }
+
+  if (!book) {
+    return res.status(404).json({ message: 'book not found' });
+  } else {
+    return res.status(200).json({ book });
+  }
 };
 
 exports.getAllBooks = getAllBooks;
 exports.addBooks = addBooks;
 exports.getBookById = getBookById;
+exports.updateBookById = updateBookById;
