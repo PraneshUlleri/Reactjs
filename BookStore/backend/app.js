@@ -2,6 +2,7 @@ console.log('hello world');
 const express = require('express');
 const mongoose = require('mongoose');
 const router = require('./route/bookroute');
+const cors = require('cors');
 
 const app = express();
 
@@ -19,4 +20,5 @@ mongoose
 //   res.send('this');
 // });
 app.use(express.json());
+app.use(cors());
 app.use('/books', router);

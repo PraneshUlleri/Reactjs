@@ -13,12 +13,13 @@ const Header = () => {
           <Typography>
             <LibraryBooksIcon />
           </Typography>
+
           <Tabs
             sx={{ ml: 'auto' }}
             textColor="inherit"
             indicatorColor="secondary"
             value={value}
-            onChange={(e, val) => setvalue(val)}
+            onChange={(e, value) => setvalue(value)}
           >
             <Tab LinkComponent={NavLink} to="/add" label="Add Books"></Tab>
             <Tab LinkComponent={NavLink} to="/books" label="Books"></Tab>

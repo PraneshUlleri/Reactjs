@@ -1,0 +1,22 @@
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.cards {
+  border: #000;
+  margin: auto;
+  width: 250px;
+  padding: 1 rem;
+  height: 100;
+  box-shadow: 5px, 5px, 10px, #ccc;
+  align-items: center;
+}
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
