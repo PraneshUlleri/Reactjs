@@ -5,7 +5,7 @@ import './Book.css';
 const Book = (props) => {
   const { name, author, description, price, image } = props.book;
   return (
-    <div className="cards">
+    <div className="card">
       <img src={image} alt={'name'} />
       <article>by {author}</article>
       <h3>{name}</h3>
