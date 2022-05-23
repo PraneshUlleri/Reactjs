@@ -1,16 +1,16 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const StateHooks = () => {
   const [Counter, setCounter] = useState(100);
 
-  const increment = () => {
+  const onclick = () => {
     setCounter(Counter + 1);
   };
+
   return (
     <div>
       {Counter}
-      <button onClick={increment}>up</button>
+      <button onClick={onclick}>up</button>
     </div>
   );
 };
