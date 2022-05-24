@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const router = require('./routes/userroutes');
 
 const app = express();
 
@@ -12,3 +13,5 @@ mongoose
     console.log('Database Connection is Established');
   })
   .catch((err) => console.log(err));
+app.use(express.json());
+app.use('/', router);
