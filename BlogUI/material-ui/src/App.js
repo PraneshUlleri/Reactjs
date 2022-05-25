@@ -1,10 +1,22 @@
+import { Stack } from '@mui/material';
+import { Box } from '@mui/material';
+import { Container } from '@mui/system';
+import Feed from './Component/Feed';
 import NavBar from './Component/NavBar';
+import RightBar from './Component/RightBar';
+import SideBar from './Component/SideBar';
 
 function App() {
   return (
-    <div>
+    <Box>
       <NavBar />
-    </div>
+
+      <Stack direction="row" spacing={2}>
+        <SideBar />
+        <Feed />
+        <RightBar />
+      </Stack>
+    </Box>
   );
 }
 
