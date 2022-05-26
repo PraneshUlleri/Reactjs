@@ -12,4 +12,5 @@ mongoose
     console.log('db established');
   });
 
+app.use(express.json());
 app.use('/user', router);
