@@ -1,11 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-
+const router = require('../backend/aroute/user-routes');
 const app = express();
-
-app.use('/', (req, res, next) => {
-  res.send('heu');
-});
 
 mongoose
   .connect(
@@ -15,3 +11,5 @@ mongoose
     app.listen(5000);
     console.log('db established');
   });
+
+app.use('/user', router);
