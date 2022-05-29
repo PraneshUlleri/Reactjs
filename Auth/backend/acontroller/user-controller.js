@@ -75,7 +75,7 @@ const verifyToken = async (req, res, next) => {
     if (err) {
       res.status(400).json({ message: 'Invalid token' });
     }
-    console.log(user.id);
+    // console.log(user.id);
     req.id = user.id;
   });
   next();
