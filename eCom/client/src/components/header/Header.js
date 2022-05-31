@@ -4,6 +4,7 @@ import { AppBar, Toolbar } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
 import { Typography } from '@mui/material';
+import SearchComp from './SearchComp';
 
 const StyledHeader = styled(AppBar)`
   background: #2874f0;
@@ -38,7 +39,7 @@ const Header = () => {
   return (
     <div>
       <StyledHeader>
-        <Toolbar>
+        <Toolbar style={{ minHeight: 55 }}>
           <BoxComponent>
             <img src={logoURL} alt="logo" style={{ width: 75 }}></img>
             <Box style={{ display: 'flex' }}>
@@ -51,6 +52,7 @@ const Header = () => {
               <Plusimage src={subURL} alt="sublogo"></Plusimage>
             </Box>
           </BoxComponent>
+          <SearchComp></SearchComp>
         </Toolbar>
       </StyledHeader>
     </div>
