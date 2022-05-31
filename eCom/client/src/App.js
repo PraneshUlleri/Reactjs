@@ -1,5 +1,12 @@
+import Header from './components/Header';
+
 function App() {
-  return <div>ecommerce about begins</div>;
+  return (
+    <div>
+      <Header />
+      ecommerce about begins
+    </div>
+  );
 }
 
 export default App;
