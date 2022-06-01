@@ -5,13 +5,11 @@ import { styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
 import { Typography } from '@mui/material';
 import SearchComp from './SearchComp';
+import CustomButton from './CustomButton';
 
 const StyledHeader = styled(AppBar)`
   background: #2874f0;
   height: 55px;
-  :hover {
-    color: #000000;
-  }
 `;
 
 const BoxComponent = styled(Box)`
@@ -53,6 +51,9 @@ const Header = () => {
             </Box>
           </BoxComponent>
           <SearchComp></SearchComp>
+          <Box>
+            <CustomButton></CustomButton>
+          </Box>
         </Toolbar>
       </StyledHeader>
     </div>
