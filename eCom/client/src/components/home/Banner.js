@@ -30,7 +30,16 @@ const Image = styled('img')({
 
 const Banner = () => {
   return (
-    <Carousel responsive={responsive}>
+    <Carousel
+      responsive={responsive}
+      containerClass="carousel-container"
+      dotListClass="custom-dot-list-style"
+      itemClass="carousel-item-padding-40-px"
+      swipeable={false}
+      draggable={false}
+      infinite={true}
+      autoPlaySpeed={2000}
+    >
       {bannerData.map((data) => (
         <Image src={data.url} alt="banner" />
       ))}
