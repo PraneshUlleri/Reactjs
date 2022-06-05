@@ -5,7 +5,7 @@ import { Button } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Dialog } from '@mui/material';
 import { maxHeight } from '@mui/system';
-
+import { authenticateSignup } from '../../service.js/api';
 import React from 'react';
 import { useState } from 'react';
 
@@ -77,6 +77,7 @@ const signupInitialValues = {
 const LoginDialog = ({ open, setOpen }) => {
   const [account, toggleAccount] = useState(accountInitialValues.login);
   const [signup, setSignup] = useState(signupInitialValues);
+
   const handleClose = () => {
     setOpen(false);
     toggleAccount(accountInitialValues.login);
@@ -96,7 +97,9 @@ const LoginDialog = ({ open, setOpen }) => {
     console.log(signup);
   };
 
-  const signupUser = () => {};
+  const signupUser = async () => {
+    let response = await authenticateSignup(signup);
+  };
 
   return (
     <Dialog
