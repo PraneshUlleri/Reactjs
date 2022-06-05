@@ -21,3 +21,5 @@ Defaultdata();
 app.use;
 app.use('/', router);
 app.use(cors());
+app.use(bodyParser.json({ extended: true }));
+app.use(bodyPArser.urlencoded({ extended: true }));
