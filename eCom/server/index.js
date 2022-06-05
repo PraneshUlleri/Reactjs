@@ -2,6 +2,7 @@ import express from 'express';
 import Connection from './database/db.js';
 import dotenv from 'dotenv';
 import Defaultdata from './default.js';
+import router from './routes/route.js';
 
 const app = express();
 const port = 5000;
@@ -16,3 +17,5 @@ app.listen(port, () => {
   console.log('Running at' + port);
 });
 Defaultdata();
+
+app.use;
