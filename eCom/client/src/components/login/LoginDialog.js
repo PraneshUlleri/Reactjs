@@ -7,9 +7,10 @@ import { Dialog } from '@mui/material';
 import { maxHeight } from '@mui/system';
 
 import React from 'react';
+import { useState } from 'react';
 
 const Component = styled(Box)`
-  height: 80vh;
+  height: 65vh;
   width: 90vh;
   display: flex;
 `;
@@ -18,8 +19,8 @@ const Image = styled(Box)`
     url(https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/login_img_c4a81e.png)
     center 35% no-repeat;
 
-  height: 100%;
-  width: 40%;
+  height: 90%;
+  width: 30%;
   padding: 45px 35px;
   color: white;
 `;
@@ -52,9 +53,47 @@ const Text = styled(Typography)`
   text-align: center;
 `;
 
+const accountInitialValues = {
+  login: {
+    view: 'login',
+    heading: 'Login ',
+    subheading: 'balablabala',
+  },
+  signup: {
+    view: 'signup',
+    heading: ' signup',
+    subheading: 'hehehahahrhahe',
+  },
+};
+
+const signupInitialValues = {
+  fname: '',
+  lname: '',
+  email: '',
+  password: '',
+  mobile: '',
+};
+
 const LoginDialog = ({ open, setOpen }) => {
+  const [account, toggleAccount] = useState(accountInitialValues.login);
+  const [signup, setSignup] = useState(signupInitialValues);
   const handleClose = () => {
     setOpen(false);
+    toggleAccount(accountInitialValues.login);
+  };
+
+  const toggleSignUp = () => {
+    toggleAccount(accountInitialValues.signup);
+  };
+
+  const togglelogin = () => {
+    toggleAccount(accountInitialValues.login);
+  };
+
+  const onInputChange = (e) => {
+    console.log(e.target.value);
+    setSignup({ ...signup, [e.target.name]: e.target.value });
+    console.log(signup);
   };
 
   return (
@@ -65,23 +104,65 @@ const LoginDialog = ({ open, setOpen }) => {
     >
       <Component>
         <Image>
-          <Typography variant="h5">Login</Typography>
-          <Typography style={{ marginTop: 20 }}>blablabla</Typography>
+          <Typography variant="h5">{account.heading}</Typography>
+          <Typography style={{ marginTop: 20 }}>
+            {account.subheading}
+          </Typography>
         </Image>
-
-        <Wrapper>
-          <TextField
-            id="emailnumber"
-            label="enter email/mobile"
-            variant="outlined"
-          />
-          <TextField id="password" label="enter password" variant="outlined" />
-          <Typography>blablabla</Typography>
-          <LoginButton>login</LoginButton>
-          <Typography>Ok</Typography>
-          <OtpButton>request otp</OtpButton>
-          <Text>New Sign up!</Text>
-        </Wrapper>
+        {account.view === 'login' ? (
+          <Wrapper>
+            <TextField
+              id="emailnumber"
+              label="enter email/mobile"
+              variant="outlined"
+            />
+            <TextField
+              id="password"
+              label="enter password"
+              variant="outlined"
+            />
+            <Typography>blablabla</Typography>
+            <LoginButton>login</LoginButton>
+            <Typography>Ok</Typography>
+            <OtpButton>request otp</OtpButton>
+            <Text onClick={() => toggleSignUp()}>New Sign up!</Text>
+          </Wrapper>
+        ) : (
+          <Wrapper>
+            <TextField
+              name="fname"
+              label="enter firstname"
+              variant="outlined"
+              onChange={(e) => onInputChange(e)}
+            />
+            <TextField
+              name="lname"
+              label="enter lastname"
+              onChange={(e) => onInputChange(e)}
+              variant="outlined"
+            />
+            <TextField
+              name="email"
+              label="enter email"
+              onChange={(e) => onInputChange(e)}
+              variant="outlined"
+            />{' '}
+            <TextField
+              name="password"
+              label="enter password"
+              onChange={(e) => onInputChange(e)}
+              variant="outlined"
+            />{' '}
+            <TextField
+              name="mobile"
+              label="enter mobile"
+              variant="outlined"
+              onChange={(e) => onInputChange(e)}
+            />
+            <Text onClick={() => togglelogin()}>have an account? signin</Text>
+            <Button> continue</Button>
+          </Wrapper>
+        )}
       </Component>
     </Dialog>
   );
