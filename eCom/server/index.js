@@ -19,3 +19,6 @@ app.listen(port, () => {
 Defaultdata();
 
 app.use;
+app.use('/', Router);
+
+app.use(cors());
