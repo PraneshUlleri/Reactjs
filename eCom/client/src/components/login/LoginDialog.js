@@ -96,6 +96,8 @@ const LoginDialog = ({ open, setOpen }) => {
     console.log(signup);
   };
 
+  const signupUser = () => {};
+
   return (
     <Dialog
       open={open}
@@ -160,7 +162,7 @@ const LoginDialog = ({ open, setOpen }) => {
               onChange={(e) => onInputChange(e)}
             />
             <Text onClick={() => togglelogin()}>have an account? signin</Text>
-            <Button> continue</Button>
+            <Button onClick={() => signupUser()}> continue</Button>
           </Wrapper>
         )}
       </Component>
