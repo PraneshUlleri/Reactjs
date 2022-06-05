@@ -3,7 +3,7 @@ import Connection from './database/db.js';
 import dotenv from 'dotenv';
 import Defaultdata from './default.js';
 import router from './routes/route.js';
-
+import bodyParser from 'body-parser';
 const app = express();
 const port = 5000;
 
@@ -19,6 +19,5 @@ app.listen(port, () => {
 Defaultdata();
 
 app.use;
-app.use('/', Router);
-
+app.use('/', router);
 app.use(cors());
