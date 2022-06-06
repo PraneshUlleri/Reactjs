@@ -1,10 +1,9 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import router from '../backend/broutes/user-router';
 const app = express();
-
-app.use('/', (req, res, next) => {
-  res.send('Helo ');
-});
+app.use(express.json());
+app.use('/blog', router);
 
 mongoose
   .connect(
