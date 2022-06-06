@@ -50,3 +50,37 @@ export const updateBlog = async (req, res, next) => {
 
   return res.status(200).json({ updateBlog });
 };
+
+export const getBlogById = async (req, res, next) => {
+  const { title, description, image, user } = req.body;
+  const blogId = req.params.id;
+  let blogById;
+
+  try {
+    blogById = await blog.findById(blogId);
+  } catch (error) {
+    return console.log(error);
+  }
+
+  if (!blogById) {
+    return res.status(404).json({ message: ' no blog' });
+  }
+  return res.status(200).json({ blogById });
+};
+
+export const deleteById = async (req, res, next) => {
+  const { title, description, image, user } = req.body;
+  const blogId = req.params.id;
+  let blogById;
+
+  try {
+    blogById = await blog.findByIdAndRemove(blogId);
+  } catch (error) {
+    return console.log(error);
+  }
+
+  if (!blogById) {
+    return res.status(500).json({ message: ' unable to delete' });
+  }
+  return res.status(200).json({ message: 'successfuly delete' });
+};
