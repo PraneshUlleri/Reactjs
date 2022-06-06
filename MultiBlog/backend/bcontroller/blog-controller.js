@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import blog from '../bmodel/blog-model';
 
 export const getAllBlogs = async (req, res, next) => {
@@ -15,18 +16,36 @@ export const getAllBlogs = async (req, res, next) => {
 };
 
 export const addBlog = async (req, res, next) => {
-  const { title, description, image, user } = req.body;
+  const { title, description, image, userbid } = req.body;
+  let existingUser;
+
+  try {
+    existingUser = await user.findById(userbid);
+  } catch (error) {
+    return console.log(error);
+  }
+
+  if (!existingUser) {
+    return res.status(400).json({ message: 'unable to find the user' });
+  }
 
   const newblog = new blog({
     title,
     description,
     image,
-    user,
+    userbid,
   });
+
   try {
-    await newblog.save();
+    const session = await mongoose.startSession();
+    session.startTransaction();
+    await blog.save({ session });
+    existingUser.blogs.push(blog);
+    await existingUser.save({ session });
+    await session.commitTransaction();
   } catch (error) {
-    return console.log(error);
+    console.log(error);
+    return res.status(500).json({ message: error });
   }
 
   return res.status(200).json({ newblog });
@@ -52,7 +71,7 @@ export const updateBlog = async (req, res, next) => {
 };
 
 export const getBlogById = async (req, res, next) => {
-  const { title, description, image, user } = req.body;
+  const { title, description, image, userbid } = req.body;
   const blogId = req.params.id;
   let blogById;
 
@@ -69,7 +88,7 @@ export const getBlogById = async (req, res, next) => {
 };
 
 export const deleteById = async (req, res, next) => {
-  const { title, description, image, user } = req.body;
+  const { title, description, image, userbid } = req.body;
   const blogId = req.params.id;
   let blogById;
 
