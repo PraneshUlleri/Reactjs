@@ -1,9 +1,12 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import router from '../backend/broutes/user-router';
+import blogrouter from './broutes/blog-router';
+
 const app = express();
 app.use(express.json());
-app.use('/blog', router);
+app.use('/user', router);
+app.use('/blog', blogrouter);
 
 mongoose
   .connect(
