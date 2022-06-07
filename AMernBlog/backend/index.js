@@ -1,9 +1,12 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import router from '../backend/arouter';
+import router from '../backend/arouter/user-router';
 const app = express();
 
-app.use('/', router);
+app.use(express.json());
+
+app.use('/user', router);
+
 mongoose
   .connect(
     `mongodb+srv://admin:root121212@cluster0.n85ze.mongodb.net/?retryWrites=true&w=majority`
