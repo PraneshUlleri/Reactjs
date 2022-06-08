@@ -84,11 +84,12 @@ export const getOneBlog = async (req, res, next) => {
 };
 
 export const deleteBlog = async (req, res, next) => {
-  const { title, description, image, user } = req.body;
   const blogId = req.params.id;
   let blogById;
   try {
-    blogById = await Blogs.findByIdAndRemove(blogId);
+    blogById = await Blogs.findByIdAndRemove(blogId).populate('user');
+    await blogById.user.allBlogs.pull(blogById);
+    await blogById.user.save();
   } catch (error) {
     return console.log(error);
   }
