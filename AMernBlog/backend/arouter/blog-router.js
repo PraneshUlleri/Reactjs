@@ -4,6 +4,7 @@ import {
   deleteBlog,
   getAllBlogs,
   getOneBlog,
+  getUserBlog,
   updateBlog,
 } from '../acontroller/blog-controller';
 
@@ -14,4 +15,5 @@ blogRouter.post('/new', addBlog);
 blogRouter.put('/update/:id', updateBlog);
 blogRouter.get('/:id', getOneBlog);
 blogRouter.delete('/delete/:id', deleteBlog);
+blogRouter.get('/userblog/:id', getUserBlog);
 export default blogRouter;
