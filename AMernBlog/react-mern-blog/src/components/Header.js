@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div>
       <AppBar
-        position="static"
+        position="sticky"
         sx={{
           background:
             'linear-gradient(174deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%)',
