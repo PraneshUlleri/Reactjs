@@ -1,7 +1,7 @@
 import Header from './components/Header';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Login from './components/Login';
+import Auth from './components/Auth';
 import Blogs from './components/Blogs';
 import UserBlogs from './components/UserBlogs';
 import BlogDetail from './components/BlogDetail';
@@ -15,7 +15,7 @@ function App() {
         </header>
         <main>
           <Routes>
-            <Route path="/login" element={<Login />}></Route>
+            <Route path="/login" element={<Auth />}></Route>
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/blogs/add" element={<AddBlog />} />
             <Route path="/myblogs" element={<UserBlogs />} />
