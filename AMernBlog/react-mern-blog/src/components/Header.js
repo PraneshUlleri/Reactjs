@@ -9,8 +9,11 @@ import {
   Typography,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+
   const [value, setValue] = useState();
 
   return (
@@ -24,16 +27,18 @@ const Header = () => {
       >
         <Toolbar>
           <Typography variant="h4">bloggers corner</Typography>
-          <Box display="flex" marginLeft={'auto'} marginRight={'autos'}>
-            <Tabs
-              textColor="inherit"
-              value={value}
-              onChange={(e, val) => setValue(val)}
-            >
-              <Tab LinkComponent={Link} to="/blogs" label="All Blogs"></Tab>
-              <Tab LinkComponent={Link} to="/myblogs " label="My Blogs"></Tab>
-            </Tabs>
-          </Box>
+          {isLoggedIn && (
+            <Box display="flex" marginLeft={'auto'} marginRight={'autos'}>
+              <Tabs
+                textColor="inherit"
+                value={value}
+                onChange={(e, val) => setValue(val)}
+              >
+                <Tab LinkComponent={Link} to="/blogs" label="All Blogs"></Tab>
+                <Tab LinkComponent={Link} to="/myblogs " label="My Blogs"></Tab>
+              </Tabs>
+            </Box>
+          )}
           <Box display="flex" marginLeft="auto">
             <Button
               sx={{ margin: 1, borderRadius: 10 }}
@@ -43,7 +48,9 @@ const Header = () => {
               signup
             </Button>
             <Button sx={{ margin: 1, borderRadius: 10 }}> login</Button>
-            <Button sx={{ margin: 1, borderRadius: 10 }}> logout</Button>
+            {isLoggedIn && (
+              <Button sx={{ margin: 1, borderRadius: 10 }}> logout</Button>
+            )}
           </Box>
         </Toolbar>
       </AppBar>
