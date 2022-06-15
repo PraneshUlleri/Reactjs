@@ -22,7 +22,7 @@ const Auth = () => {
           <TextField margin="normal" />
           <TextField margin="normal" />
           <TextField margin="normal" />
-          <Button sx={{ borderRadius: 3 }} color="warning">
+          <Button variant="contained" sx={{ borderRadius: 3 }} color="warning">
             Submit
           </Button>
           <Button sx={{ borderRadius: 3 }}>Change to signup</Button>
