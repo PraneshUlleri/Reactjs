@@ -40,14 +40,19 @@ const Header = () => {
             </Box>
           )}
           <Box display="flex" marginLeft="auto">
-            <Button
-              sx={{ margin: 1, borderRadius: 10 }}
-              LinkComponent={Link}
-              to="/Login"
-            >
-              signup
-            </Button>
-            <Button sx={{ margin: 1, borderRadius: 10 }}> login</Button>
+            {!isLoggedIn && (
+              <>
+                {' '}
+                <Button
+                  sx={{ margin: 1, borderRadius: 10 }}
+                  LinkComponent={Link}
+                  to="/Login"
+                >
+                  signup
+                </Button>
+                <Button sx={{ margin: 1, borderRadius: 10 }}> login</Button>
+              </>
+            )}
             {isLoggedIn && (
               <Button sx={{ margin: 1, borderRadius: 10 }}> logout</Button>
             )}
