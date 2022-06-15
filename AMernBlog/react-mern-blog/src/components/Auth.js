@@ -17,14 +17,12 @@ const Auth = () => {
           borderRadius={5}
         >
           <Typography padding={3} textAlign="center">
-            {' '}
             Login
           </Typography>
           <TextField margin="normal" />
           <TextField margin="normal" />
           <TextField margin="normal" />
           <Button sx={{ borderRadius: 3 }} color="warning">
-            {' '}
             Submit
           </Button>
           <Button sx={{ borderRadius: 3 }}>Change to signup</Button>
