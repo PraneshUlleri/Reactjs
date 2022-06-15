@@ -6,17 +6,28 @@ const Auth = () => {
     <div>
       <form>
         <Box
+          maxWidth={400}
           display="flex"
           flexDirection={'column'}
           alignItems="center"
-          boxShadow="10px"
+          boxShadow="5px 10px 20px #ccc"
+          padding={3}
+          margin=" auto"
+          marginTop={5}
+          borderRadius={5}
         >
-          <Typography> Login</Typography>
-          <TextField />
-          <TextField />
-          <TextField />
-          <Button> Submit</Button>
-          <Button>Change to signup</Button>
+          <Typography padding={3} textAlign="center">
+            {' '}
+            Login
+          </Typography>
+          <TextField margin="normal" />
+          <TextField margin="normal" />
+          <TextField margin="normal" />
+          <Button sx={{ borderRadius: 3 }} color="warning">
+            {' '}
+            Submit
+          </Button>
+          <Button sx={{ borderRadius: 3 }}>Change to signup</Button>
         </Box>
       </form>
     </div>
