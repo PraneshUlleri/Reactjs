@@ -17,9 +17,14 @@ const Auth = () => {
     }));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(inputs);
+  };
+
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <Box
           maxWidth={400}
           display="flex"
@@ -32,7 +37,7 @@ const Auth = () => {
           borderRadius={5}
         >
           <Typography variant="h4" padding={3} textAlign="center">
-            {isSignup ? 'Login' : 'Signup'}
+            {isSignup ? 'SignUp' : 'Login'}
           </Typography>
           {isSignup && (
             <TextField
@@ -56,18 +61,21 @@ const Auth = () => {
             onChange={handleChange}
             name="password"
           />
+
           <Button
             variant="contained"
             sx={{ borderRadius: 3, marginTop: 3 }}
             color="warning"
+            type="submit"
           >
             Submit
           </Button>
+
           <Button
             sx={{ borderRadius: 3, marginTop: 3 }}
             onClick={() => setIsSignup(!isSignup)}
           >
-            Change to {isSignup ? 'Login' : 'signup'}
+            Change to {isSignup ? 'Login' : 'Sign Up'}
           </Button>
         </Box>
       </form>
