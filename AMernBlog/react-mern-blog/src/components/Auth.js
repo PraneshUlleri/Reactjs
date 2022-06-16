@@ -16,16 +16,22 @@ const Auth = () => {
           marginTop={5}
           borderRadius={5}
         >
-          <Typography padding={3} textAlign="center">
+          <Typography variant="h4" padding={3} textAlign="center">
             Login
           </Typography>
-          <TextField margin="normal" />
-          <TextField margin="normal" />
-          <TextField margin="normal" />
-          <Button variant="contained" sx={{ borderRadius: 3 }} color="warning">
+          <TextField margin="normal" placeholder="Name" />
+          <TextField margin="normal" placeholder="Email" type={'email'} />
+          <TextField margin="normal" placeholder="Password" type={'password'} />
+          <Button
+            variant="contained"
+            sx={{ borderRadius: 3, marginTop: 3 }}
+            color="warning"
+          >
             Submit
           </Button>
-          <Button sx={{ borderRadius: 3 }}>Change to signup</Button>
+          <Button sx={{ borderRadius: 3, marginTop: 3 }}>
+            Change to signup
+          </Button>
         </Box>
       </form>
     </div>
