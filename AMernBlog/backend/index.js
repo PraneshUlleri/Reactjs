@@ -2,8 +2,10 @@ import express from 'express';
 import mongoose from 'mongoose';
 import router from '../backend/arouter/user-router';
 import blogRouter from './arouter/blog-router';
+import cors from 'cors';
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 app.use('/user', router);
