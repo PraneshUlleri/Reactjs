@@ -1,19 +1,18 @@
 import axios from 'axios';
-import { set } from 'immer/dist/internal';
 import React, { useEffect, useState } from 'react';
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState();
   const sendRequest = async () => {
     const res = await axios
-      .get(`http://localhost:5000/blog/all`)
+      .get(`http://localhost:5000/blog`)
       .catch((err) => console.log(err));
     const data = await res.data;
     return data;
   };
 
   useEffect(() => {
-    sendRequest().then((data) => console.log(data.blogs));
+    sendRequest().then((data) => console.log(data));
   }, []);
 
   return <div>Blogs</div>;
